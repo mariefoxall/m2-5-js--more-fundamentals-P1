@@ -15,10 +15,21 @@
 //  - Convert the filled array into a string (use the join method) and return it
 
 function reverse(str) {
-  // Your code here
+  const stringSplit = str.split(""); // turns string into an array
+  let newArray = [];
+
+  for (i = stringSplit.length; i > 0; i--) {
+    newArray.push(stringSplit[i - 1]);
+    // console.log(newArray);
+  }
+
+  let reverseString = newArray.join("");
+  return reverseString;
 }
 
-// We need 5 test cases
+expect(reverse("hello"), "olleh");
+expect(reverse("24789"), "98742");
+expect(reverse("wawaweewoooo"), "ooooweewawaw");
 
 /**
  * -------------------------------------------------------------------
@@ -27,7 +38,7 @@ function reverse(str) {
  */
 function expect(result, value) {
   if (result === value) {
-    console.log('✅ Test succeeded');
+    console.log("✅ Test succeeded");
   } else {
     console.log(`⛔️ Expected “${result}” to equal “${value}”`);
   }
