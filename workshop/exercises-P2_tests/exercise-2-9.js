@@ -13,10 +13,26 @@
 //  - `forEach` might be helpful
 
 function longestWord(str) {
-  // Place solution here
+  const splitString = str.split(" "); // returns an array of strings
+  let maxLength = 0;
+  let longWord = "";
+  splitString.forEach(function (element) {
+    // console.log(element);
+    if (element.length >= maxLength) {
+      longWord = element;
+      maxLength = element.length;
+    }
+  });
+  // console.log(longWord);
+  return longWord;
 }
 
-// We need 5 test cases
+expect(longestWord("this is a sentence"), "sentence");
+expect(longestWord(""), "");
+expect(longestWord("this is a test"), "test");
+expect(longestWord("bleep bloop blorp"), "blorp");
+expect(longestWord("bibbity bobbity boo"), "bobbity");
+expect(longestWord("first word for the win"), "first");
 
 /**
  * -------------------------------------------------------------------
@@ -25,7 +41,7 @@ function longestWord(str) {
  */
 function expect(result, value) {
   if (result === value) {
-    console.log('✅ Test succeeded');
+    console.log("✅ Test succeeded");
   } else {
     console.log(`⛔️ Expected “${result}” to equal “${value}”`);
   }
